@@ -1,4 +1,5 @@
-# UDACITY React Nanodegree MyReads Project: A book tracking app
+# UDACITY React Nanodegree MyReads Project:
+# A book tracking app
 
 This is my first project while learning on the Udacity React Nanodegree.
 

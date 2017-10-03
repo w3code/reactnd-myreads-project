@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import './App.css'
 import * as BooksAPI from './BooksAPI'
 import ListBooks from './Components/ListBooks'
 import Search from './Components/Search'
+import ErrorPage from './Components/404'
 
 class BooksApp extends Component {
   state = {
@@ -33,18 +34,23 @@ class BooksApp extends Component {
   render() {
     return (
       <div className="app">
-        <Route exact path="/" render={() => (
-            <ListBooks 
-              books={this.state.books} 
-              handleStatus={this.handleStatus}
-            />
-        )}/>
-        <Route path="/search" render={( {history} ) => (
-            <Search 
-              booksShelved={this.state.books} 
-              handleStatus={this.handleStatus} 
-            />
-        )}/>
+        <Switch>
+          <Route exact path="/" render={() => (
+              <ListBooks 
+                books={this.state.books} 
+                handleStatus={this.handleStatus}
+              />
+          )}/>
+          <Route path="/search" render={( {history} ) => (
+              <Search 
+                booksShelved={this.state.books} 
+                handleStatus={this.handleStatus} 
+              />
+          )}/>
+          <Route render={() => (
+            <ErrorPage />
+          )}/>
+        </Switch>
       </div>
     )
   }

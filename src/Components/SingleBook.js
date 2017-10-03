@@ -10,13 +10,17 @@ class Book extends Component {
     render() {
         const {book, handleStatus} = this.props
 
+        const inShelf = book.shelf
+        const noShelf = "none"
+        let status = !book.shelf ? noShelf : inShelf
+
         return (
             <li key={book.id}>
                 <div className="book">
                     <div className="book-top">
                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                         <div className="book-shelf-changer">
-                            <select defaultValue={book.shelf} onChange={(event) => handleStatus(event, book)}>
+                            <select defaultValue={status} onChange={(event) => handleStatus(event, book)}>
                                 <option value="none" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>

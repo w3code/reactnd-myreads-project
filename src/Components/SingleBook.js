@@ -10,6 +10,8 @@ class Book extends Component {
     render() {
         const {book, handleStatus} = this.props
 
+        let bookCover = !book.imageLinks ? "http://via.placeholder.com/128x193?text=No%20Cover" : book.imageLinks.thumbnail
+
         const inShelf = book.shelf
         const noShelf = "none"
         let status = !book.shelf ? noShelf : inShelf
@@ -18,7 +20,14 @@ class Book extends Component {
             <li key={book.id}>
                 <div className="book">
                     <div className="book-top">
-                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
+                        <div 
+                            className="book-cover" 
+                            style={{ 
+                                width: 128, 
+                                height: 193, 
+                                backgroundImage: `url(${bookCover})` 
+                            }}
+                        ></div>
                         <div className="book-shelf-changer">
                             <select defaultValue={status} onChange={(event) => handleStatus(event, book)}>
                                 <option value="none" disabled>Move to...</option>

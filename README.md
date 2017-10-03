@@ -3,6 +3,8 @@
 
 This is my first project while learning on the Udacity React Nanodegree.
 
+![alt tag](https://w3code.one/wp-content/uploads/2017/10/Bildschirmfoto-2017-10-03-um-21.22.03.png "Udacity React Nanodegree Project MyReads")
+
 ## Requirements
 
 * Node.js has to be installed on your system
